@@ -1,0 +1,112 @@
+# These snippets provide basic LATEX functionality to be used in all kinds of file/projects
+# Some of them are more specific than others, some require packages (this is indicated in the description)
+
+# --- Environments, Sections and Others ---
+
+snippet beg "Create new environment" bA
+\begin{$1}
+$0
+\end{$1}
+endsnippet
+
+snippet sec "Create new section" bA
+\section{$1}$0
+endsnippet
+
+snippet ssec "Create new subsection" bA
+\subsection{$1}$0
+endsnippet
+
+snippet sssec "Create new subsubsection" bA
+\subsubsection{$1}$0
+endsnippet
+
+snippet cc "New unnumbered centered subsubsection" b
+\addcontentsline{toc}{subsubsection}{ $1}
+\subsubsection*{\centering{$1}}$0
+endsnippet
+
+# -- Footnotes ---
+
+snippet fm "Create new footnotemark" i
+\footnotemark $0
+endsnippet
+
+snippet ft "Create new footnotetext" w
+\footnotetext{$1}$0
+endsnippet
+
+# --- Text decorations ---
+
+snippet em "Wrap in emph" w
+\emph{${VISUAL}$1}$0
+endsnippet
+
+snippet it "Wrap in textit" w
+\textit{${VISUAL}$1}$0
+endsnippet
+
+snippet bf "Wrap in textbf" w
+\textbf{${VISUAL}$1}$0
+endsnippet
+
+snippet say "Wrap text in say (dirtytalk package)" w
+\say{${VISUAL}$1}$0
+endsnippet
+
+# --- References ---
+
+snippet sref "Superscript reference" i
+\textsuperscript{\ref{$1}}$0
+endsnippet
+
+# --- Definitions, Theorems and Others ---
+
+snippet def "New definition" bA
+\begin{definition}
+\label{$1}
+\emph{$1}: $2
+\end{definition}$0
+endsnippet
+
+# --- Lists ---
+
+snippet enum "New enumerated list" b
+\begin{enumerate}
+\itemsep 0em
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet list "New itemized list" b
+\begin{itemize}
+\itemsep 0em
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet i "New item" b
+\item $0
+endsnippet
+
+# --- Tables ---
+
+snippet table "New centered table" b
+\begin{center}
+\begin{tabular}{ $1 }
+	$0
+\end{tabular}
+\end{center}
+endsnippet
+
+snippet line "New horizontal line in table" b
+\hline
+$0
+endsnippet
+
+# --- Miscellaneous ---
+
+snippet td "Add a TODO label" wA
+% TODO$0
+endsnippet
+

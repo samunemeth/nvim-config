@@ -1,0 +1,46 @@
+# These snippets are for math mode
+# Usually they convert to specific symbols
+
+# --- Initiating Math  ---
+
+snippet math "Math" bA
+\[ $1 \]$0
+endsnippet
+
+snippet mm "Inline math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ', ';']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+# --- Fractions ---
+
+snippet // "Fraction" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
+\vec{`!p snip.rv=match.group(1)`}
+endsnippet
+
+# --- Symbols ---
+
+snippet dt "Delta symbol" wA
+\Delta $0
+endsnippet
+
+snippet ssum "Sigma symbol" wA
+\Sigma $0
+endsnippet
+
+snippet dots "Low Dots symbol" wA
+\ldots $0
+endsnippet
+
