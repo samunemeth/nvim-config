@@ -1,3 +1,4 @@
+--- Variable localization ---
 local vim = vim
 local Plug = vim.fn['plug#']
 
@@ -19,33 +20,40 @@ vim.call('plug#end')
 vim.g.UltiSnipsExpandTrigger = '<Tab>'
 vim.g.UltiSnipsJumpForwardTrigger = '<Tab>'
 vim.g.UltiSnipsJumpBackwardTrigger = '<S-Tab>'
---vim.g.UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips'] -- I have no idea how to adapt this to lua
+vim.g.UltiSnipsSnippetDirectories = {
+	vim.fn.expand('$HOME/.config/nvim/UltiSnips'),
+}
 
 
 --- Vimtex configuration ---
-vim.g.vimtex_quickfix_ignore_filters = { 'Underfull', 'Overfull'}
 vim.g.tex_flavor = 'latex'
 vim.g.vimtex_view_method = 'zathura'
 vim.opt.conceallevel = 1
 vim.g.tex_conceal = 'abdmg'
 vim.g.vimtex_indent_lists = {}
+vim.g.vimtex_quickfix_ignore_filters = {
+	'Underfull',
+	'Overfull',
+}
 
 
 --- nvim-tree configuration ---
 require("nvim-tree").setup()
+vim.opt.termguicolors = true
 
 
---- Global configuration ---
+--- Line numbering configuration ---
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.so = 999
 
+
+--- Spell configuration ---
 vim.opt.spell = true
 vim.opt.spelllang = 'hu,en'
 vim.opt.spellcapcheck = ''
 
-vim.opt.termguicolors = true
 
+--- Clipboard configuration ---
 vim.opt.clipboard = 'unnamedplus'
 
 
@@ -59,11 +67,15 @@ vim.api.nvim_create_user_command('InitLuaReload', 'luafile ~/.config/nvim/init.l
 vim.api.nvim_create_user_command('Tree', 'NvimTreeOpen', {})
 
 vim.keymap.set('n', 't', '<cmd>NvimTreeOpen<cr>')
-vim.keymap.set('n', '<S-Enter>', 'o<Esc>')
 
---- File specific configuration ---
+
+--- Event configuration ---
 vim.api.nvim_create_autocmd( { 'BufRead', 'BufNewFile'}, {
-  pattern = { 'main.tex' },
-  command = 'VimtexCompile',
+	pattern = { 'main.tex' },
+	command = 'VimtexCompile',
 })
 
+vim.api.nvim_create_autocmd( { 'TermOpen' }, {
+	pattern = { '*' },
+	command = 'setlocal nospell',
+})
