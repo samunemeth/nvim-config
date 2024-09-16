@@ -21,5 +21,6 @@ Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim", { ["tag"] = "0.1.8" }) -- For fuzzy finding
 Plug("itchyny/lightline.vim") -- For the fancy status bar
 Plug("mbbill/undotree") -- For the undo tree
+Plug("tpope/vim-fugitive") -- For git
 
 vim.call("plug#end")
