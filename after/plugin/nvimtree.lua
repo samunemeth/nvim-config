@@ -5,3 +5,4 @@ vim.opt.termguicolors = true
 
 -- Keybinding
 vim.keymap.set('n', 't', '<cmd>NvimTreeOpen<cr>')
+
