@@ -12,6 +12,7 @@ vim.call('plug#begin')
 Plug('lervag/vimtex') -- For compiling latex
 Plug('SirVer/ultisnips') -- For creating snippets
 Plug('nvim-tree/nvim-tree.lua') -- For file tree
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' }) --For syntax highlighting
 
 vim.call('plug#end')
 
