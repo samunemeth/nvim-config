@@ -6,3 +6,6 @@ vim.g.mapleader = " "
 vim.keymap.set('n', '<leader>tv', '<C-w>v<C-w>w<cmd>ter<cr>')
 vim.keymap.set('n', '<leader>th', '<C-w>s<C-w>w<cmd>ter<cr>')
 
+-- Move lines in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
