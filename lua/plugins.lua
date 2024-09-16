@@ -19,6 +19,7 @@ Plug("nvim-tree/nvim-tree.lua") -- For file tree
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" }) -- For syntax highlighting
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim", { ["tag"] = "0.1.8" }) -- For fuzzy finding
-Plug("itchyny/lightline.vim")
+Plug("itchyny/lightline.vim") -- For the fancy status bar
+Plug("mbbill/undotree") -- For the undo tree
 
 vim.call("plug#end")
