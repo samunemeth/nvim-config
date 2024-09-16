@@ -6,9 +6,9 @@ vim.opt.relativenumber = true
 
 -- Spell configuration
 vim.opt.spell = true
-vim.opt.spelllang = 'hu,en'
-vim.opt.spellcapcheck = ''
+vim.opt.spelllang = "hu,en"
+vim.opt.spellcapcheck = ""
 
 -- Clipboard configuration
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 

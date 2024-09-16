@@ -11,8 +11,8 @@ local function my_on_attach(bufnr)
   api.config.mappings.default_on_attach(bufnr)
 
   -- Custom mappings
-  vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('CD'))
-  vim.keymap.set('n', 't', '<C-w>w', opts('Change window'))
+  vim.keymap.set("n", "C", api.tree.change_root_to_node, opts("CD"))
+  vim.keymap.set("n", "t", "<C-w>w", opts("Change window"))
 end
 
 require("nvim-tree").setup({
@@ -22,5 +22,5 @@ require("nvim-tree").setup({
 vim.opt.termguicolors = true
 
 -- Keybinding
-vim.keymap.set('n', 't', '<cmd>NvimTreeOpen<cr>')
+vim.keymap.set("n", "t", "<cmd>NvimTreeOpen<cr>")
 
