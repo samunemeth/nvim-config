@@ -18,6 +18,9 @@ end
 
 require("nvim-tree").setup({
   on_attach = my_on_attach,
+  filters = {
+    dotfiles = true,
+  },
 })
 
 vim.opt.termguicolors = true
