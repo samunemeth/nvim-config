@@ -12,3 +12,5 @@ vim.opt.spellcapcheck = ""
 -- Clipboard configuration
 vim.opt.clipboard = "unnamedplus"
 
+-- Panel behaviour
+vim.opt.splitbelow = true
