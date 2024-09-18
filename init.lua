@@ -11,4 +11,5 @@ require("settings")
 require("remaps")
 require("commands")
 require("autocommands")
+require("before")
 
