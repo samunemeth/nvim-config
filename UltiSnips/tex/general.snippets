@@ -74,14 +74,14 @@ endsnippet
 snippet enum "New enumerated list" b
 \begin{enumerate}
 \itemsep 0em
-	\item $0
+	$0
 \end{enumerate}
 endsnippet
 
 snippet list "New itemized list" b
 \begin{itemize}
 \itemsep 0em
-	\item $0
+	$0
 \end{itemize}
 endsnippet
 
@@ -100,11 +100,13 @@ endsnippet
 # --- Tables ---
 
 snippet table "New centered table" b
-\begin{center}
+\vspace{1em}
+\begin{adjustbox}{center}
 \begin{tabular}{ $1 }
 	$0
 \end{tabular}
-\end{center}
+\end{adjustbox}
+\vspace{1em}
 endsnippet
 
 snippet line "New horizontal line in table" b
