@@ -73,16 +73,26 @@ endsnippet
 
 snippet enum "New enumerated list" b
 \begin{enumerate}
-\itemsep 0em
 	$0
 \end{enumerate}
 endsnippet
 
-snippet list "New itemized list" b
+snippet itemize "New itemized list" b
 \begin{itemize}
-\itemsep 0em
 	$0
 \end{itemize}
+endsnippet
+
+snippet number "New dense enumerated list" b
+\begin{enumerate-dense}
+	$0
+\end{enumerate-dense}
+endsnippet
+
+snippet list "New dense itemized list" b
+\begin{itemize-dense}
+	$0
+\end{itemize-dense}
 endsnippet
 
 snippet i "New item" b
@@ -100,13 +110,9 @@ endsnippet
 # --- Tables ---
 
 snippet table "New centered table" b
-\vspace{1em}
-\begin{adjustbox}{center}
-\begin{tabular}{ $1 }
+\begin{centered-table}{ $1 }
 	$0
-\end{tabular}
-\end{adjustbox}
-\vspace{1em}
+\end{centered-table}
 endsnippet
 
 snippet line "New horizontal line in table" b
