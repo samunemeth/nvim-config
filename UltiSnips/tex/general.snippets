@@ -10,20 +10,20 @@ $0
 endsnippet
 
 snippet sec "Create new section" bA
-\section{$1}$0
+\section{${VISUAL}$1}$0
 endsnippet
 
 snippet ssec "Create new subsection" bA
-\subsection{$1}$0
+\subsection{${VISUAL}$1}$0
 endsnippet
 
 snippet sssec "Create new subsubsection" bA
-\subsubsection{$1}$0
+\subsubsection{${VISUAL}$1}$0
 endsnippet
 
 snippet cc "New unnumbered centered subsubsection" b
-\addcontentsline{toc}{subsubsection}{ $1}
-\subsubsection*{\centering{$1}}$0
+\addcontentsline{toc}{subsubsection}{ ${VISUAL}$1}
+\subsubsection*{\centering{${VISUAL}$1}}$0
 endsnippet
 
 # -- Footnotes ---
@@ -33,7 +33,7 @@ snippet fm "Create new footnotemark" i
 endsnippet
 
 snippet ft "Create new footnotetext" w
-\footnotetext{$1}$0
+\footnotetext{${VISUAL}$1}$0
 endsnippet
 
 # --- Text decorations ---
@@ -64,8 +64,8 @@ endsnippet
 
 snippet def "New definition" bA
 \begin{definition}
-\label{$1}
-\emph{$1}: $2
+\label{${VISUAL}$1}
+\emph{${VISUAL}$1}: $2
 \end{definition}$0
 endsnippet
 
@@ -90,11 +90,11 @@ snippet i "New item" b
 endsnippet
 
 snippet iit "New item with italic start" b
-\item \textit{$1:} $0
+\item \textit{${VISUAL}$1:} $0
 endsnippet
 
 snippet ibf "New item with bold start" b
-\item \textbf{$1:} $0
+\item \textbf{${VISUAL}$1:} $0
 endsnippet
 
 # --- Tables ---
@@ -110,8 +110,7 @@ snippet table "New centered table" b
 endsnippet
 
 snippet line "New horizontal line in table" b
-\hline
-$0
+\hline $0
 endsnippet
 
 # --- Miscellaneous ---
