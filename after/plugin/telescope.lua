@@ -3,10 +3,21 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 
-telescope.setup {
+telescope.setup{
+	defaults = {
+		file_ignore_patterns = {
+			"main.pdf",
+			"main.aux",
+			"main.fdb_latexmk",
+			"main.fls",
+			"main.log",
+			"main.pdf",
+			"main.synctex.gz",
+		}
+	},
 	pickers = {
 		find_files = {
-			hidden = true
+			hidden = false
 		}
 	}
 } 
