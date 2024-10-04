@@ -11,3 +11,5 @@ vim.g.vimtex_quickfix_ignore_filters = {
 	"Underfull",
 	"Overfull",
 }
+
+vim.cmd.highlight({ "Conceal", "guifg=white" })
