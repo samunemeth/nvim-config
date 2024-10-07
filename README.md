@@ -6,3 +6,17 @@ This includes:
   - `init.lua` configuration and settings.
   - `UltiSnips` snippets.
   - Custom words added to the spell checker.
+
+## Installation steps:
+
+  - Install the latest version of Neovim: [Installation guide](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-package)
+  - Clone this repository into the configuration directory (`~/.config/nvim` on linux)
+  - Install python3 and pip3: `sudo apt install python3 pip3`
+  - Install the python provider for Neovim: `python3 -m pip install --user --upgrade --break-system-packages pynvim`
+  - In Neovim run `:PlugInstall` to install all the plugins specified
+  - To install missing spell files:
+      - Run Neovim with `nvim -u none` (this disables all plugins)
+      - Ignore the error that pops up
+      - Run `:set spell spelllang=en,hu`
+      - Run `:set spell`
+      - This should prompt to install the missing language files
