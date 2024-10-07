@@ -22,5 +22,6 @@ Plug("nvim-telescope/telescope.nvim", { ["tag"] = "0.1.8" }) -- For fuzzy findin
 Plug("itchyny/lightline.vim") -- For the fancy status bar
 Plug("mbbill/undotree") -- For the undo tree
 Plug("tpope/vim-fugitive") -- For git
+Plug("karb94/neoscroll.nvim") -- For smooth scrolling
 
 vim.call("plug#end")
