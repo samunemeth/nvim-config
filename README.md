@@ -14,7 +14,7 @@ This includes:
   - Clone this repository into the configuration directory (`~/.config/nvim` on linux)
   - Install python3 if not yet installed:<br>
     `sudo apt install python3`
-  - Install the python provider for Neovim:
+  - Install the python provider for Neovim:<br>
     `python3 -m pip install --user --upgrade --break-system-packages pynvim`
   - Install plug for Neovim:
     [Installation guide for Plug](https://github.com/junegunn/vim-plug?tab=readme-ov-file#neovim)
