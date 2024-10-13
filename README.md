@@ -12,7 +12,7 @@ This includes:
   - Install the latest version of Neovim:
     [Installation guide for Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-package)
   - Clone this repository into the configuration directory (`~/.config/nvim` on linux)
-  - Install python3 if not yet installed:
+  - Install python3 if not yet installed:<br>
     `sudo apt install python3`
   - Install the python provider for Neovim:
     `python3 -m pip install --user --upgrade --break-system-packages pynvim`
