@@ -14,6 +14,7 @@ telescope.setup{
 			"main.pdf",
 			"main.synctex.gz",
 			"main.toc",
+			"main.out",
 		}
 	},
 	pickers = {
