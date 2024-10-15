@@ -23,5 +23,6 @@ Plug("itchyny/lightline.vim") -- For the fancy status bar
 Plug("mbbill/undotree") -- For the undo tree
 Plug("tpope/vim-fugitive") -- For git
 Plug("karb94/neoscroll.nvim") -- For smooth scrolling
+Plug("toppair/peek.nvim", { ["do"] = "deno task --quiet build:fast" }) -- For markdown
 
 vim.call("plug#end")
