@@ -13,6 +13,7 @@ telescope.setup{
 			"main.log",
 			"main.pdf",
 			"main.synctex.gz",
+			"main.toc",
 		}
 	},
 	pickers = {
