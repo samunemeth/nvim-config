@@ -1,4 +1,4 @@
---- Lightline plugin configuration ---
+--- Configuration for Lightline ---
 
--- Disable showing of mode 
+-- Settings 
 vim.opt.showmode = false

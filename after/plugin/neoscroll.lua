@@ -1,3 +1,6 @@
---- Neoscroll plugin configuration ---
+--- Configuration for Neoscroll ---
 
-require('neoscroll').setup({})
+local neoscroll = require('neoscroll')
+
+-- Settings
+neoscroll.setup({})

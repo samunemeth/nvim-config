@@ -1,6 +1,9 @@
---- Treesitter plugin settings --- 
+--- Configuration for Treesitter ---
 
-require("nvim-treesitter.configs").setup({
+local treesitter = require("nvim-treesitter.configs")
+
+-- Settings
+treesitter.setup({
   ensure_installed = { "javascript", "html", "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
   sync_install = false,
   auto_install = true,
