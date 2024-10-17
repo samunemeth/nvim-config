@@ -24,5 +24,6 @@ Plug("mbbill/undotree") -- For the undo tree
 Plug("tpope/vim-fugitive") -- For git
 Plug("karb94/neoscroll.nvim") -- For smooth scrolling
 Plug("toppair/peek.nvim", { ["do"] = "deno task --quiet build:fast" }) -- For markdown
+Plug("jbyuki/nabla.nvim") -- For equation preview
 
 vim.call("plug#end")
