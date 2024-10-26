@@ -7,6 +7,9 @@ local builtin = require("telescope.builtin")
 telescope.setup{
 	defaults = { file_ignore_patterns = {
 
+		-- General ignores
+		"%.pdf",
+
 		-- File ignores for latex projects
 		"main.pdf", "main.aux", "main.fdb_latexmk", "main.fls", "main.log", "main.pdf", "main.synctex.gz", "main.toc", "main.out",
 
