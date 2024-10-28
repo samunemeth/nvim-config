@@ -19,3 +19,6 @@ vim.keymap.set("n", "<tab>", "<C-w>w")
 -- Move the editor up and down in insert mode
 vim.keymap.set("i", "<C-e>", "<C-o><C-e>")
 vim.keymap.set("i", "<C-y>", "<C-o><C-y>")
+
+-- Sytemd commands
+vim.keymap.set("n", "<leader>s", ":Systemd ")
