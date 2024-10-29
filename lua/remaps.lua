@@ -14,7 +14,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>h", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Navigate windows with Tab
-vim.keymap.set("n", "<tab>", "<C-w>w")
+-- vim.keymap.set("n", "<tab>", "<C-w>w")
 
 -- Move the editor up and down in insert mode
 vim.keymap.set("i", "<C-e>", "<C-o><C-e>")
