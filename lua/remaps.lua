@@ -20,5 +20,11 @@ vim.keymap.set("n", "<leader>h", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("i", "<C-e>", "<C-o><C-e>")
 vim.keymap.set("i", "<C-y>", "<C-o><C-y>")
 
+-- Deleting into the void register
+vim.keymap.set("n", "<leader>dd", "\"_dd")
+vim.keymap.set("n", "<leader>dw", "\"_dw")
+vim.keymap.set("n", "<leader>diw", "\"_diw")
+vim.keymap.set("v", "<leader>d", "\"_d")
+
 -- Sytemd commands
 vim.keymap.set("n", "<leader>s", ":Systemd ")
