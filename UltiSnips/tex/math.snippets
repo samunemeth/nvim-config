@@ -30,6 +30,12 @@ snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet
 
+# --- Subscript ---
+
+snippet __ "Text subscript" iA
+_\text{$1}$0
+endsnippet
+
 # --- Symbols ---
 
 snippet dt "Delta symbol" wA
