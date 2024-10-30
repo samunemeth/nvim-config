@@ -22,6 +22,9 @@ vim.opt.undofile = true
 -- Colors
 vim.opt.termguicolors = true
 
+-- Scrolling
+vim.opt.scrolloff = 8
+
 -- Spell configuration
 vim.opt.spell = true
 vim.opt.spelllang = "hu,en"
