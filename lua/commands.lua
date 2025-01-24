@@ -22,7 +22,7 @@ vim.api.nvim_create_user_command('CompileMarkdown',
       end
       local in_path = vim.fn.expand("%:p")
       local out_path = vim.fn.expand("%:p:r") .. ".pdf"
-      local pandoc_options = "-s -V papersize:a4"
+      local pandoc_options = "-s -V papersize:a4 -V geometry:margin=1.5in"
       vim.fn.jobstart("pandoc " .. pandoc_options .. " -o " .. out_path .. " " .. in_path, { on_exit = compile_finished })
     else
       print("Not a markdown file!")
