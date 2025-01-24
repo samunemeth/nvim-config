@@ -28,3 +28,7 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- Sytemd commands
 vim.keymap.set("n", "<leader>s", ":Systemd ")
+
+-- Markdown compilation
+vim.keymap.set("n", "<leader>p", "<cmd>CompileMarkdown<cr>")
+vim.keymap.set("n", "<leader>o", "<cmd>OpenZathura<cr>")
