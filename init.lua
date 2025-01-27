@@ -12,4 +12,5 @@ require("remaps")
 require("commands")
 require("autocommands")
 require("before")
+require("markdown")
 
