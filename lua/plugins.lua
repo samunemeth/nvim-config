@@ -27,5 +27,6 @@ Plug("karb94/neoscroll.nvim") -- For smooth scrolling
 Plug("jbyuki/nabla.nvim") -- For equation preview in the editor.
 Plug("williamboman/mason.nvim") -- For installing and managing LSP servers.
 Plug("neovim/nvim-lspconfig") -- Pre-made configurations for LSP servers.
+Plug("frabjous/knap") -- Live latex compile
 
 vim.call("plug#end")
