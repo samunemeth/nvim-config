@@ -1,14 +1,24 @@
 --- Configuration for Knap --- 
 local knap = require("knap")
 
--- F5 processes the document once, and refreshes the view
-vim.keymap.set({ 'n', 'v', 'i' },'<F5>', function() knap.process_once() end)
+-- Knap settings
+local gknapsettings = {
+    textopdfviewerlaunch = "zathura --synctex-editor-command 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%{input}'\"'\"',%{line},0)\"' %outputfile%",
+    textopdfviewerrefresh = "none",
+    textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%",
+    textopdf = "pdflatex -jobname \"$(basename -s .pdf %outputfile%)\" -halt-on-error",
+    textopdfbufferasstdin = true,
+}
+vim.g.knap_settings = gknapsettings
 
--- F6 closes the viewer application, and allows settings to be reset
-vim.keymap.set({ 'n', 'v', 'i' },'<F6>', function() knap.close_viewer() end)
+-- Start compilation when a LaTeX file is opened
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile"}, {
+	pattern = { "main.tex" },
+    callback = function() knap.toggle_autopreviewing() end,
+})
 
--- F7 toggles the auto-processing on and off
-vim.keymap.set({ 'n', 'v', 'i' },'<F7>', function() knap.toggle_autopreviewing() end)
-
--- F8 invokes a SyncTeX forward search, or similar, where appropriate
-vim.keymap.set({ 'n', 'v', 'i' },'<F8>', function() knap.forward_jump() end)
+-- Remaps to useful commands
+vim.keymap.set({ 'n', 'v', 'i' }, '<F5>', function() knap.process_once() end)
+vim.keymap.set({ 'n', 'v', 'i' }, '<F6>', function() knap.close_viewer() end)
+vim.keymap.set({ 'n', 'v', 'i' }, '<F7>', function() knap.toggle_autopreviewing() end)
+vim.keymap.set({ 'n', 'v', 'i' }, '<F8>', function() knap.forward_jump() end)
