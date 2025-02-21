@@ -1,6 +1,12 @@
 # These snippets are for math mode
 # Usually they convert to specific symbols
 
+# Context for math
+global !p
+def math():
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
 # --- Initiating Math  ---
 
 snippet math "Math" bA
@@ -16,51 +22,116 @@ else:
 `$2
 endsnippet
 
+# --- Auto calculations ---
+
+context "math()"
+snippet calc "sympy block " w
+calc $1 calc$0
+endsnippet
+
+priority 10000
+context "math()"
+snippet 'calc(.*)calc' "evaluate sympy" wr
+`!p
+from sympy import *
+x, y, z, t = symbols('x y z t')
+k, m, n = symbols('k m n', integer=True)
+f, g, h = symbols('f g h', cls=Function)
+init_printing()
+snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
+    .replace('^', '**') \
+    .replace('{', '(') \
+    .replace('}', ')') + ')')
+`
+endsnippet
+
 # --- Fractions ---
 
+context "math()"
 snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
+context "math()"
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
 \\frac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
 
+context "math()"
 snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet
 
 # --- Subscript ---
 
+context "math()"
 snippet __ "Text subscript" iA
 _\text{$1}$0
 endsnippet
 
 # --- Symbols ---
 
+context "math()"
 snippet dt "Delta symbol" wA
 \Delta $0
 endsnippet
 
+context "math()"
 snippet ssum "Sigma symbol" wA
 \Sigma $0
 endsnippet
 
+context "math()"
 snippet dots "Low Dots symbol" wA
 \ldots $0
 endsnippet
 
 # --- Different kinds of arrows ---
 
+context "math()"
 snippet larr "Left arrow" wA
-\leftarrow
+\leftarrow $0
 endsnippet
 
+context "math()"
 snippet "r?arr" "Right arrow" rwA
-\rightarrow
+\rightarrow $0
 endsnippet
 
+priority 10000
+context "math()"
 snippet lrarr "Left-right arrow" wA
-\leftrightarrow
+\leftrightarrow $0
 endsnippet
 
+# --- Logical operators and Symbols ---
+
+context "math()"
+snippet equ "Equivalent symbol" wA
+\equiv $0
+endsnippet
+
+context "math()"
+snippet true "True symbol" wA
+\mathbb{T} $0
+endsnippet
+
+context "math()"
+snippet false "False symbol" wA
+\mathbb{F} $0
+endsnippet
+
+context "math()"
+snippet and "And symbol" wA
+\wedge $0
+endsnippet
+
+context "math()"
+snippet or "Or symbol" wA
+\vee $0
+endsnippet
+
+context "math()"
+snippet not "Not symbol" wA
+\neg $0
+endsnippet
