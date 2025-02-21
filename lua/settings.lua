@@ -35,3 +35,6 @@ vim.opt.clipboard = "unnamedplus"
 
 -- Panel behaviour
 vim.opt.splitbelow = true
+
+-- Show color column
+vim.opt.colorcolumn = "80"
