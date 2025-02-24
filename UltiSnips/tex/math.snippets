@@ -1,7 +1,9 @@
-# These snippets are for math mode
-# Usually they convert to specific symbols
+# These snippets are for math mode.
+# Usually they convert to specific symbols.
+# All symbols must have a space after them.
 
-# Context for math
+# --- Context Definition for Math ---
+
 global !p
 def math():
     return vim.eval('vimtex#syntax#in_mathzone()') == '1'
@@ -22,16 +24,16 @@ else:
 `$2
 endsnippet
 
-# --- Auto calculations ---
+# --- Auto Calculations ---
 
 context "math()"
-snippet calc "sympy block " w
+snippet calc "Sympy calculation block" w
 calc $1 calc$0
 endsnippet
 
 priority 10000
 context "math()"
-snippet 'calc(.*)calc' "evaluate sympy" wr
+snippet 'calc(.*)calc' "Evaluate sympy calculation (requires: sympy)" wr
 `!p
 from sympy import *
 x, y, z, t = symbols('x y z t')
@@ -45,17 +47,35 @@ snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
 `
 endsnippet
 
+# --- Non-math elements ---
+context "math()"
+snippet space "Empty space" wA
+\quad $0
+endsnippet
+
+context "math()"
+snippet break "More Empty space" wA
+\qquad $0
+endsnippet
+
+context "math()"
+snippet tt "Text in math" wA
+\text{${VISUAL}$1} $0
+endsnippet
+
 # --- Fractions ---
 
 context "math()"
-snippet // "Fraction" iA
+snippet // "Fraction (raw)" iA
 \\frac{$1}{$2}$0
 endsnippet
 
 context "math()"
-snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction (adaptive)" wrA
 \\frac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
+
+# --- Postfixes ---
 
 context "math()"
 snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
@@ -89,22 +109,31 @@ endsnippet
 # --- Different kinds of arrows ---
 
 context "math()"
-snippet larr "Left arrow" wA
+snippet larr "Left Arrow symbol" wA
 \leftarrow $0
 endsnippet
 
 context "math()"
-snippet "r?arr" "Right arrow" rwA
+snippet "rarr" "Right Arrow symbol" rwA
 \rightarrow $0
 endsnippet
 
-priority 10000
 context "math()"
-snippet lrarr "Left-right arrow" wA
+snippet "Rarr" "Double Right Arrow symbol" rwA
+\Rightarrow $0
+endsnippet
+
+context "math()"
+snippet lrarr "Left-right Arrow symbol" wA
 \leftrightarrow $0
 endsnippet
 
-# --- Logical operators and Symbols ---
+context "math()"
+snippet deduce "Long Double Right Arrow symbol" wA
+\Longrightarrow $0
+endsnippet
+
+# --- Logical Operators ---
 
 context "math()"
 snippet equ "Equivalent symbol" wA
