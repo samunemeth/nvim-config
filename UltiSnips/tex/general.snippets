@@ -5,36 +5,38 @@
 
 # --- Environments, Sections and Others ---
 
-snippet beg "Create new environment" bA
-\begin{$1}
-$0
+snippet "beg?i?n?(\s(\S+))?" "Environment" rb
+\begin{${1:`!p
+snip.rv = match.group(2) if match.group(1) is not None else "environment"
+`}}$2
+${0:${VISUAL}}
 \end{$1}
 endsnippet
 
-snippet sec "Create new section" bA
+snippet sec "Section" bA
 \section{${VISUAL}$1}$0
 endsnippet
 
-snippet ssec "Create new subsection" bA
+snippet ssec "Subsection" bA
 \subsection{${VISUAL}$1}$0
 endsnippet
 
-snippet sssec "Create new subsubsection" bA
+snippet sssec "Subsubsection" bA
 \subsubsection{${VISUAL}$1}$0
 endsnippet
 
-snippet cc "New unnumbered centered subsubsection" b
-\addcontentsline{toc}{subsubsection}{ ${VISUAL}$1}
+snippet cc "Unnumbered Centered subsubsection" b
+\addcontentsline{toc}{subsubsection}{${VISUAL}$1}
 \subsubsection*{\centering{${VISUAL}$1}}$0
 endsnippet
 
 # -- Footnotes ---
 
-snippet fm "Create new footnotemark" i
+snippet fm "Footnotemark" i
 \footnotemark $0
 endsnippet
 
-snippet ft "Create new footnotetext" w
+snippet ft "Footnotetext" w
 \footnotetext{${VISUAL}$1}$0
 endsnippet
 
@@ -52,7 +54,7 @@ snippet bf "Wrap in textbf" w
 \textbf{${VISUAL}$1}$0
 endsnippet
 
-snippet say "Wrap text in say (dirtytalk package)" w
+snippet say "Wrap in say (dirtytalk package)" w
 \say{${VISUAL}$1}$0
 endsnippet
 
@@ -64,9 +66,9 @@ endsnippet
 
 # --- Definitions, Theorems and Others ---
 
-snippet def "New definition" bA
+snippet def "Definition" bA
 \begin{definition}
-\label{${VISUAL}$1}
+\label{${VISUAL}${1:Definition}}
 \textbf{${VISUAL}$1}: $2
 \end{definition}$0
 endsnippet
@@ -79,16 +81,16 @@ snippet enum "Enumerated list" b
 \end{enumerate}
 endsnippet
 
+snippet number "Dense Enumerated list" b
+\begin{enumerate-dense}
+$0
+\end{enumerate-dense}
+endsnippet
+
 snippet itemize "Itemized list" b
 \begin{itemize}
 	$0
 \end{itemize}
-endsnippet
-
-snippet number "Dense Enumerated list" b
-\begin{enumerate-dense}
-	$0
-\end{enumerate-dense}
 endsnippet
 
 snippet list "Dense Itemized list" b
@@ -112,7 +114,7 @@ endsnippet
 # --- Tables ---
 
 snippet table "Centered table" b
-\begin{centered-table}{ $1 }
+\begin{centered-table}{ ${1:P{1em} | M} }
 	$0
 \end{centered-table}
 endsnippet
