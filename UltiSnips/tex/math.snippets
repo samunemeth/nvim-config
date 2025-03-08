@@ -82,6 +82,23 @@ snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction (adaptiv
 \\frac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
 
+# --- Large Brackets ---
+context "math()"
+snippet (( "Large Left Brace" iA
+\left($0
+endsnippet
+
+context "math()"
+snippet )) "Large Right Brace" iA
+\right)$0
+endsnippet
+
+# --- Environments inside Math ---
+context "math()"
+snippet arr "Array Environment" w
+\begin{array}{ ${1:c} } ${2:${VISUAL}} \end{array}$0
+endsnippet
+
 # --- Postfixes ---
 
 context "math()"
