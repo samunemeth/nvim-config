@@ -21,7 +21,8 @@ This includes:
     [Installation guide for Plug](https://github.com/junegunn/vim-plug?tab=readme-ov-file#neovim)
   - In Neovim run `:PlugInstall` to install all the plugins specified
   - To install missing spell files:
-      - Run Neovim with `nvim -u` (this disables all plugins)
+      - Run Neovim with `nvim -u`, this disables all plugins. \\
+        This may not work on newer versions, ad
       - Ignore the error that pops up
       - Run `:set spell spelllang=en,hu`
       (you can add additional language packages you want to install)
