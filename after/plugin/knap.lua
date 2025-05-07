@@ -11,7 +11,7 @@ local gknapsettings = {
     textopdfviewerrefresh = "none",
     textopdfforwardjump = "zathura " .. 
         "--synctex-forward=%line%:%column%:%srcfile% %outputfile%",
-    textopdf = "pdflatex " ..
+    textopdf = "pdflatex -synctex=1 " ..
         "-jobname \"$(basename -s .pdf %outputfile%)\" -halt-on-error",
     textopdfbufferasstdin = true,
 }
