@@ -13,4 +13,4 @@ require("commands")
 require("autocommands")
 require("before")
 require("markdown")
-
+require("notesync")

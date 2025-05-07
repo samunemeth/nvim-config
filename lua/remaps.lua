@@ -23,15 +23,6 @@ vim.keymap.set("n", "<leader>dw", "\"_dw")
 vim.keymap.set("n", "<leader>diw", "\"_diw")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
--- Sync commands
-vim.keymap.set("n", "<leader>s", function()
-    print("File sync started...")
-    local function sync_finished(chan_id, data, name)
-        print("File sync completed!")
-    end
-    vim.fn.jobstart("rclone sync /home/samu/Notes SamuNotes: --create-empty-src-dirs --size-only", { on_exit = sync_finished })
-end)
-
 -- Hard mode remaps
 vim.keymap.set({'n', 'v', 'i'}, '<Up>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Down>', '<Nop>')
@@ -54,3 +45,11 @@ vim.keymap.set("n", "<leader>a", function()
   end)
 end)
 
+vim.keymap.set("n", "<leader>s", function()
+  vim.ui.input({ prompt = "Calculator: " }, function(input)
+    local calc = load("return " .. (input or ""))()
+    if (calc) then
+      print("Result: " .. tostring(calc))
+    end
+  end)
+end)
