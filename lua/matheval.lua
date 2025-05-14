@@ -7,7 +7,7 @@ function eval_math(math_in, callback)
 end
 
 -- Enter expression and put it into buffer.
-vim.keymap.set("n", "<leader>a", function()
+vim.keymap.set("n", "<leader>mi", function()
   vim.ui.input({ prompt = "Calculator: " }, function(input)
     eval_math(input, function(result)
       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(
@@ -15,9 +15,17 @@ vim.keymap.set("n", "<leader>a", function()
     end)
   end)
 end)
+vim.keymap.set("n", "<leader>ma", function()
+  vim.ui.input({ prompt = "Calculator: " }, function(input)
+    eval_math(input, function(result)
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(
+        "a" .. result .. "<esc>", true, false, true), "i", true)
+    end)
+  end)
+end)
 
 -- Get selected expression and put it into buffer.
-vim.keymap.set("v", "<leader>a", function()
+vim.keymap.set("v", "<leader>m", function()
 
   -- Get selection position.
   local _, srow, scol = unpack(vim.fn.getpos('v'))
@@ -54,10 +62,11 @@ vim.keymap.set("v", "<leader>a", function()
 end)
 
 -- Enter expression and display result.
-vim.keymap.set("n", "<leader>s", function()
+vim.keymap.set("n", "<leader>mm", function()
   vim.ui.input({ prompt = "Calculator: " }, function(input)
     eval_math(input, function(result)
       print("Result: " .. result)
     end)
   end)
 end)
+
