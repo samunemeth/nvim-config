@@ -3,8 +3,8 @@
 vim.g.mapleader = " "
 
 -- Open a terminal window to the side or to the bottom
--- vim.keymap.set("n", "<leader>cv", "<C-w>v<C-w>w<cmd>ter<cr>")
--- vim.keymap.set("n", "<leader>ch", "<C-w>s<C-w>w<cmd>ter<cr>")
+vim.keymap.set("n", "<leader>tv", "<C-w>v<C-w>w<cmd>ter<cr>")
+vim.keymap.set("n", "<leader>th", "<C-w>s<C-w>w<cmd>ter<cr>")
 
 -- Move lines in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -22,12 +22,6 @@ vim.keymap.set("n", "<leader>dd", "\"_dd")
 vim.keymap.set("n", "<leader>dw", "\"_dw")
 vim.keymap.set("n", "<leader>diw", "\"_diw")
 vim.keymap.set("v", "<leader>d", "\"_d")
-
--- Hard mode remaps
-vim.keymap.set({'n', 'v', 'i'}, '<Up>', '<Nop>')
-vim.keymap.set({'n', 'v', 'i'}, '<Down>', '<Nop>')
-vim.keymap.set({'n', 'v', 'i'}, '<Left>', '<Nop>')
-vim.keymap.set({'n', 'v', 'i'}, '<Right>', '<Nop>')
 
 -- Correct spelling mistakes
 vim.keymap.set({"n", "v"}, "<C-l>", "[s1z=``")
