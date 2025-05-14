@@ -19,5 +19,4 @@ telescope.setup{
 
 -- Keymaps
 vim.keymap.set("n", "<leader><leader>", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
 vim.keymap.set("n", "<leader>/", builtin.live_grep, {})
