@@ -33,23 +33,3 @@ vim.keymap.set({'n', 'v', 'i'}, '<Right>', '<Nop>')
 vim.keymap.set({"n", "v"}, "<C-l>", "[s1z=``")
 vim.keymap.set({"i"}, "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u")
 
--- Math
-vim.keymap.set("n", "<leader>a", function()
-  vim.ui.input({ prompt = "Calculator: " }, function(input)
-    local calc = load("return " .. (input or ""))()
-    if (calc) then
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(
-        "i" .. tostring(calc) .. "<esc>"
-      , true, false, true), "i", true)
-    end
-  end)
-end)
-
-vim.keymap.set("n", "<leader>s", function()
-  vim.ui.input({ prompt = "Calculator: " }, function(input)
-    local calc = load("return " .. (input or ""))()
-    if (calc) then
-      print("Result: " .. tostring(calc))
-    end
-  end)
-end)
