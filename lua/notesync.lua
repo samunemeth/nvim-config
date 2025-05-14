@@ -87,6 +87,19 @@ vim.api.nvim_create_user_command('NotesWrite',
   { nargs = 0 }
 )
 
+vim.api.nvim_create_user_command('NotesWriteDry',
+  function(opts)
+    DisplayShellProgress(
+        "rclone sync ~/Notes Notes:/ -v --exclude-from ~/Notes/.rsyncignore --dry-run",
+        "File Write Dry",
+        "Starting dry file write...",
+        "File dry write finished!",
+        false
+    )
+  end,
+  { nargs = 0 }
+)
+
 vim.api.nvim_create_user_command('NotesRead',
   function(opts)
     DisplayShellProgress(
@@ -100,33 +113,45 @@ vim.api.nvim_create_user_command('NotesRead',
   { nargs = 0 }
 )
 
-vim.api.nvim_create_user_command('NotesSync',
+vim.api.nvim_create_user_command('NotesReadDry',
   function(opts)
     DisplayShellProgress(
-        "rclone bisync ~/Notes Notes:/ -v --exclude-from ~/Notes/.rsyncignore",
-        "File Sync",
-        "Starting file sync...",
-        "File sync finished!",
+        "rclone sync Notes:/ ~/Notes -v --exclude-from ~/Notes/.rsyncignore --dry-run",
+        "File Read Dry",
+        "Starting dry file read...",
+        "File dry read finished!",
         false
     )
   end,
   { nargs = 0 }
 )
 
-
-vim.api.nvim_create_user_command('NotesResync',
-  function(opts)
-    DisplayShellProgress(
-        "rclone bisync ~/Notes Notes:/ -v --exclude-from ~/Notes/.rsyncignore --resync --resync-mode newer",
-        "File Resync",
-        "Starting file resync...",
-        "File resync finished!",
-        false
-    )
-  end,
-  { nargs = 0 }
-)
+-- vim.api.nvim_create_user_command('NotesSync',
+--   function(opts)
+--     DisplayShellProgress(
+--         "rclone bisync ~/Notes Notes:/ -v --exclude-from ~/Notes/.rsyncignore",
+--         "File Sync",
+--         "Starting file sync...",
+--         "File sync finished!",
+--         false
+--     )
+--   end,
+--   { nargs = 0 }
+-- )
+--
+--
+-- vim.api.nvim_create_user_command('NotesResync',
+--   function(opts)
+--     DisplayShellProgress(
+--         "rclone bisync ~/Notes Notes:/ -v --exclude-from ~/Notes/.rsyncignore --resync --resync-mode newer",
+--         "File Resync",
+--         "Starting file resync...",
+--         "File resync finished!",
+--         false
+--     )
+--   end,
+--   { nargs = 0 }
+-- )
 
 -- Remaps
 
-vim.keymap.set("n", "<leader>t", ":NotesSync<cr>")
