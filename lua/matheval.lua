@@ -22,9 +22,20 @@ vim.keymap.set("v", "<leader>a", function()
   -- Get selection position.
   local _, srow, scol = unpack(vim.fn.getpos('v'))
   local _, erow, ecol = unpack(vim.fn.getpos('.'))
-
-  -- Only in regular visual mode.
   local input = {}
+  local post_keys = ""
+
+   -- Visual line mode (only the first line gets interpreted)
+  if vim.fn.mode() == 'V' then
+    post_keys = "<cr>"
+    if srow > erow then
+      input = vim.api.nvim_buf_get_lines(0, erow - 1, srow, true)
+    else
+      input = vim.api.nvim_buf_get_lines(0, srow - 1, erow, true)
+    end
+  end
+
+  -- Regular visual mode.
   if vim.fn.mode() == 'v' then
     if srow < erow or (srow == erow and scol <= ecol) then
       input = vim.api.nvim_buf_get_text(0, srow - 1, scol - 1, erow - 1, ecol, {})
@@ -33,10 +44,12 @@ vim.keymap.set("v", "<leader>a", function()
     end
   end
 
+  -- Visual block mode is not supported!
+
   -- Calculate and replace selection.
   eval_math(input[1], function(result)
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(
-      "di" .. result .. "<esc>", true, false, true), "i", true)
+      "di" .. result .. post_keys .. "<esc>", true, false, true), "i", true)
   end)
 end)
 
