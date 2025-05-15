@@ -1,3 +1,3 @@
 --- Configuration for Mason ---
 
-require("mason").setup()
+-- require("mason").setup()

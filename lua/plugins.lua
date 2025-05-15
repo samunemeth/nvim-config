@@ -35,7 +35,7 @@ Plug("tpope/vim-fugitive") -- For git
 
 -- LSP and Syntax
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" }) -- For syntax highlighting
-Plug("williamboman/mason.nvim") -- For installing and managing LSP servers.
-Plug("neovim/nvim-lspconfig") -- Pre-made configurations for LSP servers.
+-- Plug("williamboman/mason.nvim") -- For installing and managing LSP servers.
+-- Plug("neovim/nvim-lspconfig") -- Pre-made configurations for LSP servers.
 
 vim.call("plug#end")

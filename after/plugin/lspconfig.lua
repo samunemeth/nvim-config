@@ -1,9 +1,9 @@
 --- Configuration for LSP configuration ---
 
-local lspconfig = require('lspconfig')
+-- local lspconfig = require('lspconfig')
 
 -- Haskell
-lspconfig.hls.setup({})
+-- lspconfig.hls.setup({})
 
 -- Python
 -- lspconfig.pyright.setup({})
