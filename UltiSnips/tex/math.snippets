@@ -188,3 +188,17 @@ context "math()"
 snippet not "Not symbol" wA
 \neg $0
 endsnippet
+
+context "math()"
+snippet in "In symbol" wA
+\in $0
+endsnippet
+
+# --- Math fonts ---
+
+context "math()"
+snippet "m?a?t?h?bb\s?(\S)" "Math BB Font" rwA
+\mathbb{`!p
+snip.rv = match.group(1).upper()
+`} $0
+endsnippet
