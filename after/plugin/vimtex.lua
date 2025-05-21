@@ -7,6 +7,7 @@ vim.g.vimtex_view_method = "zathura"
 vim.g.tex_conceal = "abdmg"
 vim.g.vimtex_indent_lists = {}
 vim.g.vimtex_mappings_enabled = true
+vim.g.vimtex_imaps_enabled = 0
 vim.g.vimtex_quickfix_ignore_filters = { "Underfull", "Overfull" }
 vim.cmd.highlight({ "Conceal", "guifg=white" })
 
