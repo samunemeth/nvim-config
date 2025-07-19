@@ -3,8 +3,23 @@
 vim.g.mapleader = " "
 
 -- Open a terminal window to the side or to the bottom
-vim.keymap.set("n", "<leader>tv", "<C-w>v<C-w>w<cmd>ter<cr>")
-vim.keymap.set("n", "<leader>th", "<C-w>s<C-w>w<cmd>ter<cr>")
+-- vim.keymap.set("n", "<leader>tv", "<C-w>v<C-w>w<cmd>ter<cr>")
+-- vim.keymap.set("n", "<leader>th", "<C-w>s<C-w>w<cmd>ter<cr>")
+
+vim.keymap.set("n", "<leader>t", function()
+  local cwd = vim.fn.getcwd()
+  vim.ui.input({prompt=cwd .. "$ "}, function(c) 
+      if c and c~="" then 
+        local bufnr = vim.api.nvim_create_buf(false, true) 
+        vim.cmd("noswapfile vnew") 
+        vim.api.nvim_win_set_buf(0, bufnr)
+        vim.bo.buftype = "nofile"
+        vim.bo.bufhidden = "wipe"
+        vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.fn.systemlist(c))
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', ':bd!<CR>', { noremap = true, silent = true })
+      end 
+  end) 
+end)
 
 -- Move lines in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
