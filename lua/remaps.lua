@@ -42,3 +42,6 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set({"n", "v"}, "<C-l>", "[s1z=``")
 vim.keymap.set({"i"}, "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u")
 
+-- New lines without insert mode
+vim.keymap.set('n', '<CR>', 'm`o<Esc>``')
+vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``')
