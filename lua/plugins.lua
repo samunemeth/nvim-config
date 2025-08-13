@@ -38,4 +38,7 @@ Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" }) -- For syntax 
 -- Plug("williamboman/mason.nvim") -- For installing and managing LSP servers.
 -- Plug("neovim/nvim-lspconfig") -- Pre-made configurations for LSP servers.
 
+-- AI Assistant
+Plug("github/copilot.vim") -- Github Copilot
+
 vim.call("plug#end")
